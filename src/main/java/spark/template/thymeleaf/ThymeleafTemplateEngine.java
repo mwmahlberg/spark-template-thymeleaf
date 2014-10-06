@@ -19,10 +19,18 @@ package spark.template.thymeleaf;
 
 import java.util.Map;
 
+import javax.servlet.ServletContext;
+
+import nz.net.ultraq.thymeleaf.LayoutDialect;
+
+import org.thymeleaf.context.AbstractContext;
 import org.thymeleaf.context.Context;
+import org.thymeleaf.context.WebContext;
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 
 import spark.ModelAndView;
+import spark.Request;
+import spark.Response;
 import spark.TemplateEngine;
 
 public class ThymeleafTemplateEngine extends TemplateEngine {
@@ -37,6 +45,8 @@ public class ThymeleafTemplateEngine extends TemplateEngine {
 		templateResolver.setCacheTTLMs(3600000L);
 		thymeleaf = new org.thymeleaf.TemplateEngine();
 		thymeleaf.setTemplateResolver(templateResolver);
+		thymeleaf.addDialect(new LayoutDialect());
+
 	}
 
 	public ThymeleafTemplateEngine(org.thymeleaf.TemplateEngine thymeleaf) {
@@ -71,11 +81,28 @@ public class ThymeleafTemplateEngine extends TemplateEngine {
 
 			Map<String, ?> modelMap = (Map<String, ?>) modelAndView.getModel();
 
-			Context ctx = new Context();
+			AbstractContext ctx;
+			
+			if (modelMap.containsKey("request")
+					&& modelMap.containsKey("response")
+					&& modelMap.containsKey("servletContext")
+					&& modelMap.get("request") instanceof Request
+					&& modelMap.get("response") instanceof Response
+					&& modelMap.get("servletContext") instanceof ServletContext
+					) {
+				
+				 ctx = new WebContext(((Request) modelMap.get("request")).raw(),
+						((Response) modelMap.get("response")).raw(),
+						((ServletContext) modelMap.get("servletContext")));
+				
+			} else {
+				ctx = new Context();
+			}
+
 			ctx.setVariables(modelMap);
 
 			return thymeleaf.process(modelAndView.getViewName(), ctx);
-			
+
 		} else {
 			throw new IllegalArgumentException(
 					"modelAndView must be of type java.util.Map");
