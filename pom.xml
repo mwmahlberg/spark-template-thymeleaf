@@ -8,7 +8,7 @@
 		<version>7</version>
 	</parent>
 
-	<groupId>com.sparkjava</groupId>
+	<groupId>com.github.mwmahlberg.sparkjava</groupId>
 	<artifactId>spark-template-thymeleaf</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
