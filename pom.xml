@@ -14,19 +14,21 @@
 
 	<name>spark-template-thymeleaf</name>
 	<description>Thymeleaf Template View Route implementation for Spark</description>
+	<url>https://github.com/mwmahlberg/spark-template-thymeleaf</url>
 	<inceptionYear>2014</inceptionYear>
 	<developers>
 		<developer>
 			<id>mwmahlberg</id>
 			<name>Markus W. Mahlberg</name>
 			<email>markus.mahlberg@icloud.com</email>
+			<url>https://github.com/mwmahlberg</url>
 			<timezone>+2</timezone>
 			<roles>
 				<role>developer</role>
 			</roles>
 		</developer>
 	</developers>
-	
+
 	<licenses>
 		<license>
 			<name>The Apache Software License, Version 2.0</name>
@@ -35,10 +37,11 @@
 			<comments>A business-friendly OSS license</comments>
 		</license>
 	</licenses>
-	
+
 	<scm>
-		<connection>https://github.com/mwmahlberg/spark-template-thymeleaf.git</connection>
-		<developerConnection>git@github.com:mwmahlberg/spark-template-thymeleaf.git</developerConnection>
+		<connection>scm:git:https://github.com/mwmahlberg/spark-template-thymeleaf.git</connection>
+		<developerConnection>scm:git:git@github.com:mwmahlberg/spark-template-thymeleaf.git</developerConnection>
+		<url>git@github.com:mwmahlberg/spark-template-thymeleaf.git</url>
 	</scm>
 	<issueManagement>
 		<url>https://github.com/mwmahlberg/spark-template-thymeleaf/issues</url>
@@ -65,5 +68,52 @@
 			<version>1.2.5</version>
 		</dependency>
 	</dependencies>
-	<url>https://github.com/mwmahlberg/spark-template-thymeleaf</url>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.3</version>
+				<executions>
+					<execution>
+						<id>sources</id>
+						<phase>package</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.9.1</version>
+				<executions>
+					<execution>
+						<id>javadoc</id>
+						<phase>package</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.5</version>
+				<executions>
+					<execution>
+						<id>sign</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>
