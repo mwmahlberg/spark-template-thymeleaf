@@ -9,7 +9,7 @@
 
 	<groupId>com.github.mwmahlberg.sparkjava</groupId>
 	<artifactId>spark-template-thymeleaf</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2-SNAPSHOT</version>
 
 	<name>spark-template-thymeleaf</name>
 	<description>Thymeleaf Template View Route implementation for Spark</description>
