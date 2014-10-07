@@ -38,7 +38,7 @@ import spark.TemplateEngine;
  * Thymeleaf template engine for Spark Web Application Framework
  * 
  * @author markus
- * @version 0.0.1-SNAPSHOT
+ * @version 0.0.1
  * @see <a href="http://www.sparkjava.com/documentation.html#views-templates">Spark's Template Engine docs</a> 
  * 
  */
