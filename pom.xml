@@ -113,6 +113,14 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>external.atlassian.jgitflow</groupId>
+				<artifactId>jgitflow-maven-plugin</artifactId>
+				<version>1.0-m4.3</version>
+				<configuration>
+					<!-- see goals wiki page for configuration options -->
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 	<profiles>
@@ -158,9 +166,9 @@
 		</mailingList>
 		<mailingList>
 			<name>Thymeleaf user forum</name>
-			<post/>
-			<subscribe/>
-			<unsubscribe/>
+			<post />
+			<subscribe />
+			<unsubscribe />
 			<archive>http://forum.thymeleaf.org</archive>
 		</mailingList>
 	</mailingLists>
@@ -169,10 +177,8 @@
 			<plugin>
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<configuration>
-					<!--
-					Necessary, as the site plugin does not obey the configuration
-					of the pluginManagement section
-					-->
+					<!-- Necessary, as the site plugin does not obey the configuration of 
+						the pluginManagement section -->
 					<links>
 						<link>http://www.thymeleaf.org/apidocs/thymeleaf/2.1.3.RELEASE/</link>
 					</links>
