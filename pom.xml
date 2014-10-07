@@ -135,4 +135,8 @@
 			</build>
 		</profile>
 	</profiles>
+	<ciManagement>
+		<system>Travis</system>
+		<url>https://travis-ci.org/mwmahlberg/spark-template-thymeleaf</url>
+	</ciManagement>
 </project>

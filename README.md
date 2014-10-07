@@ -1,5 +1,7 @@
 # spark-template-thymeleaf
 
+[![Build Status](https://travis-ci.org/mwmahlberg/spark-template-thymeleaf.svg?branch=develop)](https://travis-ci.org/mwmahlberg/spark-template-thymeleaf)
+
 *Note: By default, `spark-template-thymeleaf` expects all templates to be under `META-INF/templates`, to be valid HTML5 (otherwise an exception is thrown during rendering) and have `.html` as the file suffix. So the path for the template in this example would be `/META-INF/templates/testpage.html`*
 
 How to use the Thymeleaf template route for Spark example:
